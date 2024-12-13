@@ -24,4 +24,12 @@ public class DiceRollLog {
     @CreationTimestamp
     //add a timestamp to the log
     private long timestamp;
+
+    public void addResult(int result){
+        results += result + " ";
+    }
+
+    public int getResult(int ind){
+        return Integer.parseInt(results.split(" ")[ind]);
+    }
 }
