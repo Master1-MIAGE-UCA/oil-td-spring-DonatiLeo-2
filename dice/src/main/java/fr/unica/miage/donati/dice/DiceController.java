@@ -10,19 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class DiceController {
 
     @Autowired
-    private Dice dice;
+    private DiceService diceService;
 
     @RequestMapping("/rollDice")
     public String roll(){
-        return "" + dice.roll();
+        return diceService.rollDices(1);
     }
 
     @GetMapping("/rollDices/{id}")
     public String rollMultiple(@PathVariable Long id){
-        String res = "";
-        for(int i = 0; i < id; i++){
-            res += dice.roll() + " ";
-        }
-        return res;
+        return diceService.rollDices(id.intValue());
     }
 }

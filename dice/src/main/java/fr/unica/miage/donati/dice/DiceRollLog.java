@@ -18,6 +18,7 @@ public class DiceRollLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int diceCount;
+
     //stores results of dice rolls
     private String results;
 
