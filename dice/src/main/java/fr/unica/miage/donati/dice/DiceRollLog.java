@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,13 +26,21 @@ public class DiceRollLog {
 
     @CreationTimestamp
     //add a timestamp to the log
-    private long timestamp;
+    private LocalDateTime timestamp;
 
-    public void addResult(int result){
-        results += result + " ";
+    public void setResults(String results){
+        this.results = results;
     }
 
-    public int getResult(int ind){
-        return Integer.parseInt(results.split(" ")[ind]);
+    public String getResults(){
+        return results;
     }
+
+    //public void addResult(int result){
+    //    results += result + " ";
+    //}
+
+    //public int getResult(int ind){
+    //    return Integer.parseInt(results.split(" ")[ind]);
+    //}
 }
